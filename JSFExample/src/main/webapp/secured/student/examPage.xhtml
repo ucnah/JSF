@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+    <h:dataTable value="#{sessionScope.questions}"  var="question">
+        <h:column>
+            <h:outputText value="#{question.text}"/>
+            <h:selectOneRadio value="#{answerController.questions}" converter="com.jsfexample.model.Question">
+                <f:selectItem itemValue = "#{question.answer1}" itemLabel = "#{question.answer1}" />
+                <f:selectItem itemValue = "#{question.answer2}" itemLabel = "#{question.answer2}" />
+                <f:selectItem itemValue = "#{question.answer3}" itemLabel = "#{question.answer3}" />
+                <f:selectItem itemValue = "#{question.answer4}" itemLabel = "#{question.answer4}" />
+            </h:selectOneRadio>
+        </h:column>
+    </h:dataTable>
+        <h:commandButton value="Send" action="#{answerController.verify}"/>
+    </h:form>
+</h:body>
+</html>

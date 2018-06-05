@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>JSF 2.0 Hello World</title>
+</h:head>
+<h:body bgcolor="white">
+    <h2>Register</h2>
+    <h:form>
+        <h:outputLabel>Username:</h:outputLabel>
+        <h:inputText value="#{userBean.username}" required="true">
+            <f:validateRequired/>
+        </h:inputText>
+        <br/>
+        <h:outputLabel>Password:</h:outputLabel>
+        <h:inputSecret value="#{userBean.password}" required="true">
+            <f:validateRequired/>
+        </h:inputSecret>
+        <br/>
+        <h:outputLabel>Email:</h:outputLabel>
+        <h:inputText value="#{userBean.email}" required="true">
+            <f:validateRequired/>
+        </h:inputText>
+        <br/>
+        <h:outputLabel>Role:</h:outputLabel>
+        <h:selectOneMenu value="#{userBean.role}" converter="com.jsfexample.EnumConverter">
+            <f:selectItems value="#{userBean.possibleRoles}"/>
+        </h:selectOneMenu>
+        <br/>
+        <h:commandButton action="#{userController.register}" value="Register"/>
+        <h:commandButton action="hello" value="Cancel"/>
+    </h:form>
+</h:body>
+</html>

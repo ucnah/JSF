@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>LOGIN</title>
+</h:head>
+<h:body>
+    <h:form>
+
+        <h:outputLabel>Username:</h:outputLabel>
+        <h:inputText required="true" value="#{userBean.username}">
+            <f:validateRequired/>
+        </h:inputText>
+        <br/>
+        <h:outputLabel>Password:</h:outputLabel>
+        <h:inputSecret required="true" value="#{userBean.password}">
+            <f:validateRequired/>
+        </h:inputSecret>
+        <br/>
+        <h:commandButton value="Log in" action="#{userController.login}"/>
+        <h:commandButton value="Cancel" action="hello"/>
+
+    </h:form>
+</h:body>
+</html>
